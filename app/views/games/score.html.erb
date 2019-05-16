@@ -1,0 +1,16 @@
+<h1>Result</h1>
+
+<% if @included == false %>
+
+  <p>Sorry but <strong><%= @answer.upcase %></strong> can't be builtout of <%= @grid.gsub(" ", ",") %></p>
+<% elsif @english == false %>
+
+  <p>Sorry but <strong><%= @answer.upcase %></strong> does not seem to be a valid English word ...</p>
+
+<% elsif @english == true %>
+  <p><strong>Congratulations!</strong> <%= @answer.upcase %> is a valid English word !</p>
+  <p>Your score: <%= @word_score %> points. Total score : <%= session[:total] %> points!</p>
+
+<% end %>
+
+<%= link_to "Play again", "/new" %>
